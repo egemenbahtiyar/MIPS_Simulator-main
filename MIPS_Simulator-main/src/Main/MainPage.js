@@ -6,8 +6,6 @@ import Sidebar from "./Interface/DisplayPanel/Sidebar";
 import processor from "./Simulator/processor.js";
 import parser from "./Simulator/parser.js";
 import execute from "./Simulator/execute.js";
-import PWOF from "./Simulator/PWOF.js";
-import PWF from "./Simulator/PWF.js";
 
 class MainPage extends Component {
     //this is the Mainpage where all components of the simulator are integrated
@@ -23,8 +21,6 @@ class MainPage extends Component {
         registers: processor.registers,
         print: "📖 Read Only\n", // 🕮 📖 contains the string contents of the Read only console
         pc: 0, //program counter
-        PWOFMatrix: null, //The 2D array used to display the pipeline diagram without forwarding
-        PWFMatrix: null, //The 2D array used to display the pipeline diagram with forwarding
         memory: processor.memory,
         prevRegisters: new Map([
             ["r0", 0],
@@ -110,36 +106,6 @@ class MainPage extends Component {
             this.step();
         } while (this.state.pc != 0);
         //IMPORTANT: here call both PWF and PWOF.updateCacheSettings() along with appropriate cache input paramenters before calling run
-        PWF.updateCacheSettings(
-            this.state.l1cachesize,
-            this.state.l1blocksize,
-            this.state.l1assoc,
-            this.state.l2cachesize,
-            this.state.l2blocksize,
-            this.state.l2assoc,
-            this.state.l1latency,
-            this.state.l2latency,
-            this.state.memlatency,
-            this.state.isidealcase
-        );
-        PWOF.updateCacheSettings(
-            this.state.l1cachesize,
-            this.state.l1blocksize,
-            this.state.l1assoc,
-            this.state.l2cachesize,
-            this.state.l2blocksize,
-            this.state.l2assoc,
-            this.state.l1latency,
-            this.state.l2latency,
-            this.state.memlatency,
-            this.state.isidealcase
-        );
-        this.state.PWFMatrix = PWF.run(this.state.lines, this.state.tags);
-        this.state.PWOFMatrix = PWOF.run(this.state.lines, this.state.tags);
-        this.setState({
-            PWOFMatrix: this.state.PWOFMatrix,
-            PWFMatrix: this.state.PWFMatrix,
-        }); //the pipeline diagram tables are now generated
         this.ideMan.current.highlight(-1);
     };
 

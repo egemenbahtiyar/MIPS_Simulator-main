@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import { makeStyles } from "@material-ui/core/styles";
 
 var x = 0;
 
