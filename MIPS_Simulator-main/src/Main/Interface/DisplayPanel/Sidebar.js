@@ -158,33 +158,6 @@ const Sidebar = (
         }
     }
 
-    /* back-end for cache settings */
-
-    var l1cachetable = props.l1cache;
-    var l2cachetable = props.l2cache;
-
-    var l1sets, l2sets;
-
-    l1sets = [];
-    l2sets = [];
-
-    try {
-        for (var i = 0; i < l1cachetable._data.length; i++) {
-            l1sets.push(l1cachetable._data[i]);
-            x = 0;
-        }
-    } catch (error) {
-        x = 1;
-    }
-
-    try {
-        for (var i = 0; i < l2cachetable._data.length; i++) {
-            l2sets.push(l2cachetable._data[i]);
-            x = 0;
-        }
-    } catch (error) {
-        x = 1;
-    }
     return (
         // rendering the complete UI
         <div className="sidebar">
@@ -419,7 +392,6 @@ const Sidebar = (
                                     style={{ display: d ? `block` : `none` }}
                                 >
                                     {/* Decimal */}
-
                                     <div id="memory-tabledec"></div>
                                 </li>
                             </ul>
