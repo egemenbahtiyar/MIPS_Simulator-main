@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Dropdown } from "reactjs-dropdown-component";
 import "./Sidebar.css";
-import Checkbox from "@material-ui/core/Checkbox";
 import { makeStyles } from "@material-ui/core/styles";
 
 var l1cachesize = 16;
@@ -284,51 +282,14 @@ const Sidebar = (
         document.getElementById("sb1").style.opacity = "1";
     }
 
-    function cache() {}
-
     function dec() {
         // display decimal values only on toggle
-        setB(false);
         setD(true);
-        setH(false);
         {
             document.getElementById("decimal").style.display = "block";
         }
         {
-            document.getElementById("hexadecimal").style.display = "none";
-        }
-        {
-            document.getElementById("binary").style.display = "none";
-        }
-        {
             document.getElementById("sb1").style.backgroundColor = "grey";
-        }
-    }
-
-    function hex() {
-        // display hexadecimal values only on toggle
-        setB(false);
-        setD(false);
-        setH(true);
-    }
-
-    function bin() {
-        // display binary values only on toggle
-        setB(true);
-        setD(false);
-        setH(false);
-    }
-
-    function changeChbox(event) {
-        setChecked(event.target.checked);
-        customcheck = !checked;
-        onCacheChange();
-        if (customcheck === true) {
-            document.getElementById("ideal").style.display = "block";
-            document.getElementById("non-ideal").style.display = "none";
-        } else {
-            document.getElementById("ideal").style.display = "none";
-            document.getElementById("non-ideal").style.display = "block";
         }
     }
 
@@ -1234,115 +1195,11 @@ const Sidebar = (
                                             <span style={{ textAlign: `left` }}>
                                                 Cache Size
                                             </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    color: `black`,
-                                                    fontSize: "12px",
-                                                    padding: `3px`,
-                                                }}
-                                            >
-                                                <Dropdown
-                                                    name="16 bytes"
-                                                    title="16 bytes"
-                                                    list={cachesizesl1}
-                                                    onChange={changeCacheSizel1}
-                                                    color="black"
-                                                    styles={{
-                                                        list: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                            margin: `0px`,
-                                                        },
-                                                        listItem: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `3px`,
-                                                        },
-                                                        headerTitle: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `11px`,
-                                                            padding: `0px`,
-                                                        },
-                                                        wrapper: {
-                                                            height: `20px`,
-                                                            paddingLeft: `0px`,
-                                                            margin: `0px`,
-                                                            paddingRight: `-20px`,
-                                                            width: `auto`,
-                                                        },
-                                                        headerArrowUpIcon: {
-                                                            display: `none`,
-                                                            fontSize: `0px`,
-                                                        },
-                                                        headerArrowDownIcon: {
-                                                            fontSize: `0px`,
-                                                            display: `none`,
-                                                        },
-                                                        scrollList: {
-                                                            width: `auto`,
-                                                        },
-                                                    }}
-                                                />
-                                            </span>
                                         </div>
 
                                         <div className="query">
                                             <span style={{ textAlign: `left` }}>
                                                 Block Size
-                                            </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    color: `black`,
-                                                    fontSize: "12px",
-                                                    padding: `3px`,
-                                                }}
-                                            >
-                                                <Dropdown
-                                                    name="4 bytes"
-                                                    title="4 bytes"
-                                                    list={blocksizesl1}
-                                                    onChange={changeBlockSizel1}
-                                                    fontSize="12px"
-                                                    color="black"
-                                                    styles={{
-                                                        list: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                            margin: `0px`,
-                                                        },
-                                                        listItem: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `3px`,
-                                                        },
-                                                        headerTitle: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `11px`,
-                                                            padding: `0px`,
-                                                        },
-                                                        wrapper: {
-                                                            height: `20px`,
-                                                            paddingLeft: `-5px`,
-                                                            margin: `0px`,
-                                                            width: `auto`,
-                                                        },
-                                                        headerArrowUpIcon: {
-                                                            display: `none`,
-                                                            fontSize: `0px`,
-                                                        },
-                                                        headerArrowDownIcon: {
-                                                            fontSize: `0px`,
-                                                            display: `none`,
-                                                        },
-                                                        scrollList: {
-                                                            width: `auto`,
-                                                        },
-                                                    }}
-                                                />
                                             </span>
                                         </div>
 
@@ -1354,57 +1211,6 @@ const Sidebar = (
                                                 }}
                                             >
                                                 Associativity
-                                            </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    color: `black`,
-                                                    fontSize: "12px",
-                                                    padding: `3px`,
-                                                }}
-                                            >
-                                                <Dropdown
-                                                    name="Direct Mapped"
-                                                    title="Direct Mapped"
-                                                    list={assocl1}
-                                                    onChange={changeAssocl1}
-                                                    color="black"
-                                                    styles={{
-                                                        list: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                            margin: `0px`,
-                                                        },
-                                                        listItem: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `3px`,
-                                                        },
-                                                        headerTitle: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `11px`,
-                                                            padding: `0px`,
-                                                        },
-                                                        wrapper: {
-                                                            height: `20px`,
-                                                            paddingLeft: `-5px`,
-                                                            margin: `0px`,
-                                                            width: `auto`,
-                                                        },
-                                                        headerArrowUpIcon: {
-                                                            display: `none`,
-                                                            fontSize: `0px`,
-                                                        },
-                                                        headerArrowDownIcon: {
-                                                            fontSize: `0px`,
-                                                            display: `none`,
-                                                        },
-                                                        scrollList: {
-                                                            width: `auto`,
-                                                        },
-                                                    }}
-                                                />
                                             </span>
                                         </div>
 
@@ -1419,57 +1225,6 @@ const Sidebar = (
                                                 }}
                                             >
                                                 Latency
-                                            </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    color: `black`,
-                                                    fontSize: "12px",
-                                                    padding: `3px`,
-                                                }}
-                                            >
-                                                <Dropdown
-                                                    name="1 cycle"
-                                                    title="1 cycle"
-                                                    list={latencyl1}
-                                                    onChange={changeLatl1}
-                                                    color="black"
-                                                    styles={{
-                                                        list: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                            margin: `0px`,
-                                                        },
-                                                        listItem: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `3px`,
-                                                        },
-                                                        headerTitle: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `11px`,
-                                                            padding: `0px`,
-                                                        },
-                                                        wrapper: {
-                                                            height: `20px`,
-                                                            paddingLeft: `-5px`,
-                                                            margin: `0px`,
-                                                            width: `auto`,
-                                                        },
-                                                        headerArrowUpIcon: {
-                                                            display: `none`,
-                                                            fontSize: `0px`,
-                                                        },
-                                                        headerArrowDownIcon: {
-                                                            fontSize: `0px`,
-                                                            display: `none`,
-                                                        },
-                                                        scrollList: {
-                                                            width: `auto`,
-                                                        },
-                                                    }}
-                                                />
                                             </span>
                                         </div>
                                     </td>
@@ -1497,113 +1252,11 @@ const Sidebar = (
                                             <span style={{ textAlign: `left` }}>
                                                 Cache Size
                                             </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    color: `black`,
-                                                    fontSize: "12px",
-                                                    padding: `3px`,
-                                                }}
-                                            >
-                                                <Dropdown
-                                                    name="64 bytes"
-                                                    title="64 bytes"
-                                                    list={cachesizesl2}
-                                                    onChange={changeCacheSizel2}
-                                                    color="black"
-                                                    styles={{
-                                                        list: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                            margin: `0px`,
-                                                        },
-                                                        listItem: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `3px`,
-                                                        },
-                                                        headerTitle: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `11px`,
-                                                            padding: `0px`,
-                                                        },
-                                                        wrapper: {
-                                                            height: `20px`,
-                                                            paddingLeft: `0px`,
-                                                            margin: `0px`,
-                                                            width: `auto`,
-                                                        },
-                                                        headerArrowUpIcon: {
-                                                            display: `none`,
-                                                            fontSize: `0px`,
-                                                        },
-                                                        headerArrowDownIcon: {
-                                                            fontSize: `0px`,
-                                                            display: `none`,
-                                                        },
-                                                        scrollList: {
-                                                            width: `auto`,
-                                                        },
-                                                    }}
-                                                />
-                                            </span>
                                         </div>
 
                                         <div className="query">
                                             <span style={{ textAlign: `left` }}>
                                                 Block Size
-                                            </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    color: `black`,
-                                                    fontSize: "12px",
-                                                    padding: `3px`,
-                                                }}
-                                            >
-                                                <Dropdown
-                                                    name="4 bytes"
-                                                    title="4 bytes"
-                                                    list={blocksizesl2}
-                                                    onChange={changeBlockSizel2}
-                                                    color="black"
-                                                    styles={{
-                                                        list: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                            margin: `0px`,
-                                                        },
-                                                        listItem: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `3px`,
-                                                        },
-                                                        headerTitle: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `11px`,
-                                                            padding: `0px`,
-                                                        },
-                                                        wrapper: {
-                                                            height: `20px`,
-                                                            paddingLeft: `-5px`,
-                                                            margin: `0px`,
-                                                            width: `auto`,
-                                                        },
-                                                        headerArrowUpIcon: {
-                                                            display: `none`,
-                                                            fontSize: `0px`,
-                                                        },
-                                                        headerArrowDownIcon: {
-                                                            fontSize: `0px`,
-                                                            display: `none`,
-                                                        },
-                                                        scrollList: {
-                                                            width: `auto`,
-                                                        },
-                                                    }}
-                                                />
                                             </span>
                                         </div>
 
@@ -1615,57 +1268,6 @@ const Sidebar = (
                                                 }}
                                             >
                                                 Associativity
-                                            </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    color: `black`,
-                                                    fontSize: "12px",
-                                                    padding: `3px`,
-                                                }}
-                                            >
-                                                <Dropdown
-                                                    name="Direct Mapped"
-                                                    title="Direct Mapped"
-                                                    list={assocl2}
-                                                    onChange={changeAssocl2}
-                                                    color="black"
-                                                    styles={{
-                                                        list: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                            margin: `0px`,
-                                                        },
-                                                        listItem: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `3px`,
-                                                        },
-                                                        headerTitle: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `11px`,
-                                                            padding: `0px`,
-                                                        },
-                                                        wrapper: {
-                                                            height: `20px`,
-                                                            paddingLeft: `-5px`,
-                                                            margin: `0px`,
-                                                            width: `auto`,
-                                                        },
-                                                        headerArrowUpIcon: {
-                                                            display: `none`,
-                                                            fontSize: `0px`,
-                                                        },
-                                                        headerArrowDownIcon: {
-                                                            fontSize: `0px`,
-                                                            display: `none`,
-                                                        },
-                                                        scrollList: {
-                                                            width: `auto`,
-                                                        },
-                                                    }}
-                                                />
                                             </span>
                                         </div>
 
@@ -1680,57 +1282,6 @@ const Sidebar = (
                                                 }}
                                             >
                                                 Latency
-                                            </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    color: `black`,
-                                                    fontSize: "12px",
-                                                    padding: `3px`,
-                                                }}
-                                            >
-                                                <Dropdown
-                                                    name="2 cycles"
-                                                    title="2 cycles"
-                                                    list={latencyl2}
-                                                    onChange={changeLatl2}
-                                                    color="black"
-                                                    styles={{
-                                                        list: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                            margin: `0px`,
-                                                        },
-                                                        listItem: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `3px`,
-                                                        },
-                                                        headerTitle: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `11px`,
-                                                            padding: `0px`,
-                                                        },
-                                                        wrapper: {
-                                                            height: `20px`,
-                                                            paddingLeft: `-5px`,
-                                                            margin: `0px`,
-                                                            width: `auto`,
-                                                        },
-                                                        headerArrowUpIcon: {
-                                                            display: `none`,
-                                                            fontSize: `0px`,
-                                                        },
-                                                        headerArrowDownIcon: {
-                                                            fontSize: `0px`,
-                                                            display: `none`,
-                                                        },
-                                                        scrollList: {
-                                                            width: `auto`,
-                                                        },
-                                                    }}
-                                                />
                                             </span>
                                         </div>
                                     </td>
@@ -1754,104 +1305,6 @@ const Sidebar = (
                                                 }}
                                             >
                                                 Memory Latency
-                                            </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    color: `black`,
-                                                    fontSize: "12px",
-                                                    padding: `3px`,
-                                                }}
-                                            >
-                                                <Dropdown
-                                                    name="10 cycles"
-                                                    title="10 cycles"
-                                                    list={latencymem}
-                                                    onChange={changeLatMem}
-                                                    fontSize="12px"
-                                                    color="black"
-                                                    styles={{
-                                                        list: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                            margin: `0px`,
-                                                        },
-                                                        listItem: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `3px`,
-                                                        },
-                                                        headerTitle: {
-                                                            fontWeight: `bold`,
-                                                            fontSize: `12px`,
-                                                            padding: `0px`,
-                                                        },
-                                                        wrapper: {
-                                                            height: `20px`,
-                                                            paddingLeft: `-5px`,
-                                                            margin: `0px`,
-                                                            width: `auto`,
-                                                        },
-                                                        headerArrowUpIcon: {
-                                                            display: `none`,
-                                                            fontSize: `0px`,
-                                                        },
-                                                        headerArrowDownIcon: {
-                                                            fontSize: `0px`,
-                                                            display: `none`,
-                                                        },
-                                                        scrollList: {
-                                                            width: `auto`,
-                                                        },
-                                                    }}
-                                                />
-                                            </span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <table className="cache-settings-table">
-                                <tr className="table-row">
-                                    <td
-                                        className="table-row"
-                                        style={{ textAlign: `left` }}
-                                    >
-                                        <div
-                                            className="query"
-                                            style={{ paddingBottom: `0px` }}
-                                        >
-                                            <span
-                                                style={{
-                                                    textAlign: `left`,
-                                                    width: `auto`,
-                                                }}
-                                            >
-                                                Hypothetical Ideal Case
-                                            </span>
-                                            <span
-                                                style={{
-                                                    float: `right`,
-                                                    overflow: `hidden`,
-                                                    padding: `0px`,
-                                                    marginTop: `-8px`,
-                                                    marginBottom: `-8px`,
-                                                    marginRight: `-8px`,
-                                                }}
-                                            >
-                                                <Checkbox
-                                                    checked={checked}
-                                                    borderColor="white"
-                                                    icon={
-                                                        <span
-                                                            className={
-                                                                styles.icon
-                                                            }
-                                                        />
-                                                    }
-                                                    onChange={changeChbox}
-                                                />
                                             </span>
                                         </div>
                                     </td>
