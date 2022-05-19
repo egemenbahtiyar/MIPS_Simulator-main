@@ -1,0 +1,222 @@
+.sidebar{
+    width: 100%;
+    height: 722px;
+    overflow: auto;
+    background-color: #383144;
+}
+
+.sidebar-menu {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    clear: both;
+    background-color: #333333;
+}
+
+.sidebar-menu button {
+    font-family: 'montserrat';
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 18px;
+    background-color: #292929;
+    color: white;
+    box-shadow: none;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-right: 1px solid grey;
+}
+
+.sidebar-menu button:hover{
+    background-color: rgba(128, 128, 128, 0.466);
+    color: white;
+}
+
+#b1 {
+    background-color: gray;
+    /* background-color: #333333; */
+}
+
+#b2 {
+    background-color: #333333;
+}
+
+#b3 {
+    background-color: #333333;
+    /* background-color: gray; */
+}
+
+#regs {
+    display: block;
+}
+
+#mem {
+    display: none;
+    border: 1px solid #bd93f9;
+    margin: 5px;
+    padding: 5px;
+}
+
+#cache-display {
+    display: none;
+}
+
+.sidebar-options {
+    background-color: #292929;
+    width: 100%;
+    clear: both;
+    margin: 0px;
+    padding: 0px;
+    /* margin-left: 0px; */
+    padding-left: 0px;
+    /* float: left; */
+}
+
+.sidebar-options button{
+    font-family: 'montserrat';
+    /* padding: 0px; */
+    margin: 0px;
+    padding-top: 3px;
+    /* margin-top: 0px; */
+    padding-bottom: 3px;
+    font-size: 16px;
+    background-color: #383144;
+    color: white;
+    box-shadow: none;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-right: 1px solid grey;
+}
+
+#sb1 {
+    background-color: gray;
+}
+
+#sb2, #sb3 {
+    background-color: #333333;
+}
+
+ul, li {
+    padding: 0px;
+    margin: 0px;
+    clear: both;
+    /* float:left; */
+}
+
+.registers-table {
+    margin: 0px;
+    width: 100%;
+    clear: both;
+    padding: 0px;
+    color: white;
+}
+
+tr {
+    padding: 0px;
+    margin: 0px;
+}
+
+td {
+    border: 1px solid #bd93f9;
+    margin: 0px;
+    padding: 7px;
+    width: 50%;
+    /* background-color: yellowgreen; */
+}
+
+#memory-table, #memory-tabledec, #memory-tablebin {
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+}
+
+#r0, #at, #v0, #v1, #a0, #a1, #a2, #a3, #t0, #t1, #t2, #t2, #t3, #t4, #t5, #t6, #t7, #s0, #s1, #s2, #s3, #s4, #s5, #s6, #s7, #t8, #t9, #k0, #k1, #gp, #sp, #s8, #ra {
+    background-color: #383144;
+}
+
+.cache-settings-table {
+    color: white;
+    padding: 0px;
+    width: 100%;
+}
+
+.table-row {
+    padding: 3px;
+    width: 100%;
+}
+
+.query {
+    margin: 0px;
+    padding-bottom: 8px;
+    /* font-size: 14px; */
+}
+
+#cache-display {
+    overflow-x: hidden;
+}
+
+#cache-display-table {
+    width: 100%;
+    vertical-align: top;
+}
+
+#cache-display-data {
+    color: grey;
+    width: 50%;
+    vertical-align: top;    
+}
+
+#cache-display-row {
+    width: 50%;
+}
+
+.cache-info {
+    color: #cacaca;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.cache-caution {
+    color: #acacac;
+    font-size: 16px;
+    padding: 5px;
+    /* margin: 10px; */
+    text-align: center;
+}
+
+.caution-symbol {
+    color: orange;
+    font-size: 22px;
+    text-align: center;
+}
+
+.ideal-inst {
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    color: #acacac;
+}
+
+#non-ideal {
+    display: block;
+}
+
+#ideal {
+    display: none;
+}
+
+.l1assoc-error {
+    font-family: montserrat;
+    font-size: 14px;
+    color: grey;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.no-padding {
+    margin: 0px;
+    padding: 0px;
+}
