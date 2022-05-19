@@ -303,12 +303,6 @@ const Sidebar = (
         {
             document.getElementById("sb1").style.backgroundColor = "grey";
         }
-        {
-            document.getElementById("sb2").style.backgroundColor = "#333333";
-        }
-        {
-            document.getElementById("sb3").style.backgroundColor = "#333333";
-        }
     }
 
     function hex() {
