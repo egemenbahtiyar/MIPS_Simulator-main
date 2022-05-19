@@ -32,9 +32,7 @@ const Sidebar = (
 
     var memoryArr = props.memoryArray;
 
-    var str = "";
     var strdec = "";
-    var strbin = "";
 
     var start = -1;
     var prev = -1;
@@ -47,45 +45,14 @@ const Sidebar = (
             c = 1;
             lastSeen = i;
             if (start == prev) {
-                str +=
-                    "[0x" +
-                    (4 * i + 268500992).toString(16) +
-                    "]: " +
-                    memoryArr[i].toString(16) +
-                    "<br/>";
                 strdec +=
                     "[0x" +
                     (4 * i + 268500992).toString(16) +
                     "]: " +
                     memoryArr[i].toString(10) +
                     "<br/>";
-                strbin +=
-                    "[0x" +
-                    (4 * i + 268500992).toString(16) +
-                    "]: " +
-                    memoryArr[i].toString(2) +
-                    "<br/>";
                 prev = i;
             } else {
-                str +=
-                    start == prev
-                        ? "[0x" +
-                          (4 * i + 268500992).toString(16) +
-                          "]: " +
-                          memoryArr[i].toString(16) +
-                          "<br/>"
-                        : "<br>" +
-                          "[0x" +
-                          (4 * (prev + 1) + 268500992).toString(16) +
-                          "...<br/>..." +
-                          "0x" +
-                          (4 * i + 268500992).toString(16) +
-                          "]: 0<br></br>" +
-                          "[0x" +
-                          (4 * i + 268500992).toString(16) +
-                          "]: " +
-                          memoryArr[i].toString(16) +
-                          "<br/>";
                 strdec +=
                     start == prev
                         ? "[0x" +
@@ -105,26 +72,6 @@ const Sidebar = (
                           "]: " +
                           memoryArr[i].toString(10) +
                           "<br/>";
-                strbin +=
-                    start == prev
-                        ? "[0x" +
-                          (4 * i + 268500992).toString(16) +
-                          "]: " +
-                          memoryArr[i].toString(2) +
-                          "<br/>"
-                        : "<br>" +
-                          "[0x" +
-                          (4 * (prev + 1) + 268500992).toString(16) +
-                          "...<br/>..." +
-                          "0x" +
-                          (4 * i + 268500992).toString(16) +
-                          "]: 0<br></br>" +
-                          "[0x" +
-                          (4 * i + 268500992).toString(16) +
-                          "]: " +
-                          memoryArr[i].toString(2) +
-                          "<br/>";
-
                 prev = i;
             }
         }
@@ -134,19 +81,7 @@ const Sidebar = (
     if (c === 0) {
         // populating the memory segment
         prev = 0;
-        str +=
-            "[0x" +
-            (4 * prev + 268500992).toString(16) +
-            "...<br/>...0x" +
-            (4 * 1024 + 268500992).toString(16) +
-            "]: 0<br/>";
         strdec +=
-            "[0x" +
-            (4 * prev + 268500992).toString(16) +
-            "...<br/>...0x" +
-            (4 * 1024 + 268500992).toString(16) +
-            "]: 0<br/>";
-        strbin +=
             "[0x" +
             (4 * prev + 268500992).toString(16) +
             "...<br/>...0x" +
@@ -155,21 +90,7 @@ const Sidebar = (
     } else {
         // populating the memory segment
         if (lastSeen != 1023) {
-            str +=
-                "<br>" +
-                "[0x" +
-                (4 * (lastSeen + 1) + 268500992).toString(16) +
-                "...<br/>...0x" +
-                (4 * 1024 + 268500992).toString(16) +
-                "]: 0<br/>";
             strdec +=
-                "<br>" +
-                "[0x" +
-                (4 * (lastSeen + 1) + 268500992).toString(16) +
-                "...<br/>...0x" +
-                (4 * 1024 + 268500992).toString(16) +
-                "]: 0<br/>";
-            strbin +=
                 "<br>" +
                 "[0x" +
                 (4 * (lastSeen + 1) + 268500992).toString(16) +
@@ -179,7 +100,7 @@ const Sidebar = (
         }
     }
 
-    /* setting dec, hex and bin strings */
+    /* setting dec string */
 
     if (document.getElementById("memory-tabledec") != null) {
         document.getElementById("memory-tabledec").innerHTML = strdec;
