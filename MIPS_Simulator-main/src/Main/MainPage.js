@@ -2,7 +2,6 @@ import "../App.css";
 import React, { Component } from "react";
 import Editor from "./Interface/Editor/Editor.js";
 import Navbar from "./Interface/Navbar/Navbar.js";
-import Console from "./Interface/Console/Console.js";
 import Sidebar from "./Interface/DisplayPanel/Sidebar";
 import processor from "./Simulator/processor.js";
 import parser from "./Simulator/parser.js";
@@ -260,13 +259,6 @@ class MainPage extends Component {
                                     backgroundColor: "#bd93f9",
                                 }}
                             ></div>
-                            <div style={{ zIndex: `0`, height: `100%` }}>
-                                <Console
-                                    console={this.state.print}
-                                    pwfmatrix={this.state.PWFMatrix}
-                                    pwofmatrix={this.state.PWOFMatrix}
-                                />
-                            </div>
                         </div>
                     </div>
                 </div>

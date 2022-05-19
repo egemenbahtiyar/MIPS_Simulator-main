@@ -4,21 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 var x = 0;
 
-const useStyles = makeStyles({
-    // CSS for checkbox (Material UI)
-    icon: {
-        borderRadius: 3,
-        width: 18,
-        height: 18,
-        margin: 3,
-        border: "2px solid #ffaaaa",
-        backgroundColor: "white",
-        "input:hover ~ &": {
-            backgroundColor: "#ffaaaa",
-        },
-    },
-});
-
 const Sidebar = (
     props // Sidebar component (main)
 ) => {
