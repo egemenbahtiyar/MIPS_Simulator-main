@@ -143,9 +143,7 @@ const Sidebar = (
     }
 
     return (
-        // rendering the complete UI
         <div className="sidebar">
-            {/* buttons */}
             <div className="sidebar-menu">
                 <button id="b1" onClick={reg}>
                     REGISTERS
@@ -167,7 +165,6 @@ const Sidebar = (
                 }}
             ></hr>
 
-            {/* buttons */}
             <div className="sidebar-options">
                 <button id="sb1" onClick={dec}>
                     DECIMAL
@@ -187,7 +184,6 @@ const Sidebar = (
 
             <div>
                 <ul>
-                    {/* segments */}
                     <li id="regs">
                         <div>
                             <ul>
@@ -366,7 +362,6 @@ const Sidebar = (
                                 </li>
                             </ul>
                         </div>
-                        {/* end of Register segment */}
                     </li>
                     <li id="mem">
                         <div>
@@ -375,12 +370,10 @@ const Sidebar = (
                                     id="decimal"
                                     style={{ display: d ? `block` : `none` }}
                                 >
-                                    {/* Decimal */}
                                     <div id="memory-tabledec"></div>
                                 </li>
                             </ul>
                         </div>
-                        {/* end of Memory segment */}
                     </li>
                 </ul>
             </div>

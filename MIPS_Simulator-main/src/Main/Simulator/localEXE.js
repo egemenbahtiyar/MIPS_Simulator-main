@@ -1,6 +1,4 @@
-var local = {
-    //this function is a copy of execute.exe and is used by the PWF and PWOF functions to independently simulate the programs again to generate the pipeline diagrams
-};
+var local = {};
 local.exe = (lines, tags, pc, processor) => {
     if (lines == null) {
         pc = 0;
@@ -8,7 +6,7 @@ local.exe = (lines, tags, pc, processor) => {
     }
     let line = lines[pc];
     if (line[0].includes(":") && line.length != 1) {
-        line.splice(0, 1); //removes the tag from the beginning hence s=extracting the instruction
+        line.splice(0, 1);
     }
     if (line[0] == "" || line[0] == "#") {
         pc = pc + 1;
@@ -206,7 +204,6 @@ local.exe = (lines, tags, pc, processor) => {
         pc = pc + 1;
     }
     if (pc === lines.length) {
-        //if pc has reached the end of the lines pf code, reinitialize to 0, ready for the next step or run
         pc = 0;
     }
     return pc;

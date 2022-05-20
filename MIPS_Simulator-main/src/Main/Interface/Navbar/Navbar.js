@@ -1,17 +1,12 @@
 import React from "react";
 import "./Navbar.css";
 
-// navbar component (main)
-
 class Navbar extends React.Component {
-    /* empty functions for testing click events */
-
     render() {
         return (
             <nav className="main-nav">
                 <div></div>
 
-                {/* step-run and run buttons */}
                 <span id="navbar-right-id">
                     <span className="navbar-buttons-right">
                         <button

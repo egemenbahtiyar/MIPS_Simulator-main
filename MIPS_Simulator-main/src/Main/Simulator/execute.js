@@ -1,8 +1,5 @@
 import processor from "./processor";
-var execute = {
-    //execute.exe function takes all the non empty lines of code as an array named lines, all the jump tags in a map named tags
-    //and pc which is the index of the instruction to execute in the lines array and print as the variable to update contents of the console
-};
+var execute = {};
 execute.exe = (lines, tags, pc, print) => {
     let valid = false;
     let currentPC = pc;
@@ -12,7 +9,7 @@ execute.exe = (lines, tags, pc, print) => {
     }
     let line = lines[pc];
     if (line[0].includes(":") && line.length != 1) {
-        line.splice(0, 1); //removes the tag from the beginning hence extracting the instruction
+        line.splice(0, 1);
     }
     if (line[0] == "" || line[0] == "#" || line[0].includes(".")) {
         pc = pc + 1;
@@ -39,7 +36,6 @@ execute.exe = (lines, tags, pc, print) => {
         pc = pc + 1;
         valid = true;
     } else if (line[0] === "addi" || line[0] === "addiu") {
-        //check if difference between addi and addiu matters
         let src1 = line[2].replace("$", "");
         let src2 = parseInt(line[3]);
         let dest = line[1].replace("$", "");
@@ -213,16 +209,16 @@ execute.exe = (lines, tags, pc, print) => {
     } else if (line[0] === "syscall") {
         let code = processor.getRegister("v0");
         switch (code) {
-            case 1: //print the integer stored in $a0 on the console
+            case 1:
                 const text = processor.getRegister("a0");
                 print = print + text + " ";
                 pc = pc + 1;
                 break;
             case 4:
                 pc = pc + 1;
-                //print the string whose address is store in $a0, on the console - Not implemented
+
                 break;
-            case 10: //exit
+            case 10:
                 pc = 0;
                 break;
             default:
@@ -236,7 +232,6 @@ execute.exe = (lines, tags, pc, print) => {
         pc = pc + 1;
     }
     if (pc === lines.length) {
-        //if pc has reached the end of the lines pf code, reinitialize to 0, ready for the next step or run
         pc = 0;
     }
     if (!valid) {
