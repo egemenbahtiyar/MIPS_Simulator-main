@@ -2,7 +2,7 @@
     width: 100%;
     height: 100vh;
     overflow: auto;
-    background-color: #383144;
+    background-color: rgb(3, 14, 51);
 }
 
 .sidebar-menu {
@@ -10,12 +10,13 @@
     padding: 0px;
     width: 100%;
     clear: both;
-    background-color: #333333;
+    display: flex;
+    justify-content: center;
 }
 
 .sidebar-menu button {
-    font-family: "montserrat";
-    padding-top: 6px;
+    border-radius: 12px;
+    padding-top: 10px;
     padding-bottom: 6px;
     font-size: 18px;
     background-color: #292929;
@@ -35,6 +36,7 @@
 
 #b1 {
     background-color: gray;
+    margin-right: 10px;
     /* background-color: #333333; */
 }
 
@@ -108,11 +110,9 @@ tr {
 }
 
 td {
-    border: 1px solid #bd93f9;
     margin: 0px;
     padding: 7px;
     width: 50%;
-    /* background-color: yellowgreen; */
 }
 
 #memory-tabledec {
@@ -154,5 +154,5 @@ td {
 #sp,
 #s8,
 #ra {
-    background-color: #383144;
+    background-color: black;
 }

@@ -43,10 +43,10 @@ input:active {
     transition-duration: 0.1s;
 }
 
-button {
+.main-nav button:nth-child(1) {
     float: left;
     height: 100%;
-    background-color: #292929;
+    background-color: rgb(151, 134, 36);
     color: #d3d3d3;
     border: none;
     text-decoration: none;
@@ -58,10 +58,10 @@ button {
     padding-left: 10px;
     padding-right: 10px;
 }
-.nav-item {
+.main-nav button:nth-child(2) {
     float: left;
     height: 100%;
-    background-color: #2e2e2e;
+    background-color: green;
     color: #d3d3d3;
     border: none;
     text-decoration: none;
@@ -74,9 +74,10 @@ button {
     padding-right: 10px;
 }
 
-button:hover {
+.main-nav button:nth-child(1):hover,
+.main-nav button:nth-child(2):hover {
     cursor: pointer;
-    background-color: grey;
+    background-color: transparent;
     color: white;
     transition-duration: 0.1s;
 }

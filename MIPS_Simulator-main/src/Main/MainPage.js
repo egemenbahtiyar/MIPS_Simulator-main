@@ -218,14 +218,6 @@ class MainPage extends Component {
                                 pc={this.state.pc}
                             />
                         </div>
-                        <div>
-                            <div
-                                style={{
-                                    height: "1px",
-                                    backgroundColor: "#bd93f9",
-                                }}
-                            ></div>
-                        </div>
                     </div>
                 </div>
             </div>
