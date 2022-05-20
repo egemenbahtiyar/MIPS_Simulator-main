@@ -56,23 +56,11 @@ class MainPage extends Component {
             ["s8", 0],
             ["ra", 0],
         ]), //previous state of registers is maintained to enable highlighting of registers when the corresponding values change
-        l1cachesize: 16, //size of L1 cache in bytes
-        l1blocksize: 4, //size of the blocks in L1 cache in bytes
-        l1assoc: 1, //associativity of L1 cache
-        l1latency: 1, //latency of L1 cache
-        l2cachesize: 64, //size of L2 cache in bytes
-        l2blocksize: 4, //size of the blocks in L2 cache in bytes
-        l2assoc: 1, //associativity of L2 cache
-        l2latency: 2, //latency of L2 cache
         memlatency: 10, //latency of Man Memory access
         isidealcase: false, //if this is checked, the memory heirarchy is disabled and all memory are operations are assumed to be 1 cycle
-        L1: processor.L1, //L1 cache data table
-        L2: processor.L2, //L2 cache data table
     };
 
     setCode = (newCode) => {
-        //updates the MIPS code input when changes are made in the editor
-        this.deleteFile();
         this.setState({
             code: newCode,
         });
@@ -81,19 +69,6 @@ class MainPage extends Component {
     };
 
     run = () => {
-        //runs the entire MIPS code, displays updated Registers, Memory, Cache Table and both pipeline tables, with and without forwarding
-        processor.updateCacheSettings(
-            this.state.l1cachesize,
-            this.state.l1blocksize,
-            this.state.l1assoc,
-            this.state.l2cachesize,
-            this.state.l2blocksize,
-            this.state.l2assoc,
-            this.state.l1latency,
-            this.state.l2latency,
-            this.state.memlatency,
-            this.state.isidealcase
-        );
         processor.reset();
         this.state.print = "📖 Read Only\n";
         this.state.pc = 0;
@@ -101,11 +76,10 @@ class MainPage extends Component {
             pc: 0,
             print: "📖 Read Only\n",
         });
-        do //repeatedly calls the step function to execute each line step by step
-        {
+        do {
             this.step();
         } while (this.state.pc != 0);
-        //IMPORTANT: here call both PWF and PWOF.updateCacheSettings() along with appropriate cache input paramenters before calling run
+
         this.ideMan.current.highlight(-1);
     };
 
@@ -121,18 +95,6 @@ class MainPage extends Component {
             });
         }
         if (this.state.lines == null) {
-            processor.updateCacheSettings(
-                this.state.l1cachesize,
-                this.state.l1blocksize,
-                this.state.l1assoc,
-                this.state.l2cachesize,
-                this.state.l2blocksize,
-                this.state.l2assoc,
-                this.state.l1latency,
-                this.state.l2latency,
-                this.state.memlatency,
-                this.state.isidealcase
-            );
             [this.state.lines, this.state.tags] = parser.parse(this.state.code);
         }
         for (var [key, value] of processor.registers) {
@@ -150,8 +112,6 @@ class MainPage extends Component {
             registers: processor.registers,
             memory: processor.memory,
             print: this.state.print,
-            L1: processor.L1,
-            L2: processor.L2,
         });
         this.ideMan.current.highlight(this.state.pc); //updates the parameter used to move the highlight of the line to be executed on the next click of step
     };
@@ -161,33 +121,6 @@ class MainPage extends Component {
             code: changedCode,
             lines: null,
             tags: null,
-            pc: 0,
-        });
-    };
-    onCacheChange = (
-        l1csize,
-        l1bsize,
-        l1assoc,
-        l1latency,
-        l2csize,
-        l2bsize,
-        l2assoc,
-        l2latency,
-        memlatency,
-        isideal
-    ) => {
-        this.setState({
-            //updates the state variables of the cache when the inputs of cache settings are changed in the UI
-            l1cachesize: l1csize,
-            l1blocksize: l1bsize,
-            l1assoc: l1assoc,
-            l1latency: l1latency,
-            l2cachesize: l2csize,
-            l2blocksize: l2bsize,
-            l2assoc: l2assoc,
-            l2latency: l2latency,
-            memlatency: memlatency,
-            isidealcase: isideal,
             pc: 0,
         });
     };
@@ -201,9 +134,9 @@ class MainPage extends Component {
                             programCounter={this.state.pc}
                             memoryArray={this.state.memory}
                             prevRegisters={this.state.prevRegisters}
-                            onCacheChange={this.onCacheChange}
-                            l1cache={processor.L1}
-                            l2cache={processor.L2}
+                            // onCacheChange={this.onCacheChange}
+                            // l1cache={processor.L1}
+                            // l2cache={processor.L2}
                         />
                     </div>
                     <div style={{ width: "65%", height: `100%` }}>
