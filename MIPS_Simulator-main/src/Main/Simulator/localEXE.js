@@ -18,7 +18,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = processor.getRegister(src2);
-        processor.setRegister(dest, val1 + val2);
+        opcode = "00001";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         pc = pc + 1;
     } else if (line[0] === "addi" || line[0] === "addiu") {
         let src1 = line[2].replace("$", "");
@@ -35,7 +36,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = processor.getRegister(src2);
-        processor.setRegister(dest, val1 * val2);
+        opcode = "01100";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         pc = pc + 1;
     } else if (line[0] === "muli") {
         let src1 = line[2].replace("$", "");
@@ -43,7 +45,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = src2;
-        processor.setRegister(dest, parseInt(val1 * val2));
+        opcode = "01101";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         pc = pc + 1;
     } else if (line[0] === "and") {
         let src1 = line[2].replace("$", "");
@@ -51,7 +54,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = processor.getRegister(src2);
-        processor.setRegister(dest, val1 && val2);
+        opcode = "00011";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         pc = pc + 1;
     } else if (line[0] === "slt") {
         let src1 = line[2].replace("$", "");
@@ -59,7 +63,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = processor.getRegister(src2);
-        processor.setRegister(dest, val1 < val2 ? 1 : 0);
+        opcode = "00101";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         pc = pc + 1;
     } else if (line[0] === "slti") {
         let src1 = line[2].replace("$", "");
@@ -67,6 +72,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = src2;
+        opcode = "00110";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         processor.setRegister(dest, val1 < val2 ? 1 : 0);
         console.log(val1 && val2);
         pc = pc + 1;
@@ -84,7 +91,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = processor.getRegister(src2);
-        processor.setRegister(dest, val1 || val2);
+        opcode = "00100";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         pc = pc + 1;
     } else if (line[0] === "ori") {
         let src1 = line[2].replace("$", "");
@@ -100,6 +108,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = processor.getRegister(src2);
+        opcode = "00010";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         processor.setRegister(dest, val1 - val2);
         pc = pc + 1;
     } else if (line[0] === "srl") {
@@ -108,7 +118,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = src2;
-        processor.setRegister(dest, val1 >> val2);
+        opcode = "01011";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         pc = pc + 1;
     } else if (line[0] === "sll") {
         let src1 = line[2].replace("$", "");
@@ -116,7 +127,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = line[1].replace("$", "");
         let val1 = processor.getRegister(src1);
         let val2 = src2;
-        processor.setRegister(dest, val1 << val2);
+        opcode = "01010";
+        processor.setRegister(dest, opcodeDecoder(opcode, val1, val2));
         pc = pc + 1;
     } else if (line[0] === "bne") {
         let src1 = line[1].replace("$", "");
@@ -124,7 +136,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = tags.get(line[3] + ":");
         let val1 = processor.getRegister(src1);
         let val2 = processor.getRegister(src2);
-        if (val1 != val2) {
+        opcode = "10010";
+        if (opcodeDecoder(opcode, val1, val2)) {
             pc = dest;
         } else {
             pc = pc + 1;
@@ -135,7 +148,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest = tags.get(line[3] + ":");
         let val1 = processor.getRegister(src1);
         let val2 = processor.getRegister(src2);
-        if (val1 === val2) {
+        opcode = "10001";
+        if (opcodeDecoder(opcode, val1, val2)) {
             pc = dest;
         } else {
             pc = pc + 1;
@@ -153,7 +167,8 @@ local.exe = (lines, tags, pc, processor) => {
         }
     } else if (line[0] === "j") {
         let dest = tags.get(line[1] + ":");
-        pc = dest;
+        opcode = "00111";
+        pc = opcodeDecoder(opcode, dest);
     } else if (line[0] === "li") {
         let src1 = parseInt(line[2]);
         let dest = line[1].replace("$", "");
@@ -162,7 +177,8 @@ local.exe = (lines, tags, pc, processor) => {
     } else if (line[0] === "lui") {
         let src1 = parseInt(line[2]);
         let dest = line[1].replace("$", "");
-        processor.setRegister(dest, src1 * 2 ** 16);
+        opcode = "01110";
+        processor.setRegister(dest, opcodeDecoder(opcode, src1));
         pc = pc + 1;
     } else if (line[0] === "lw") {
         let src = line[2].split("(");
@@ -171,7 +187,8 @@ local.exe = (lines, tags, pc, processor) => {
         let src2 = offset + processor.getRegister(src1);
         let dest = line[1].replace("$", "");
         let value = processor.getMemory(src2);
-        processor.setRegister(dest, value);
+        opcode = "10000";
+        processor.setRegister(dest, opcodeDecoder(opcode, value));
         pc = pc + 1;
     } else if (line[0] === "sw") {
         let dest = line[2].split("(");
@@ -180,7 +197,8 @@ local.exe = (lines, tags, pc, processor) => {
         let dest2 = offset + processor.getRegister(dest1);
         let src = line[1].replace("$", "");
         let value = processor.getRegister(src);
-        processor.setMemory(dest2, value);
+        opcode = "01111";
+        processor.setMemory(dest2, opcodeDecoder(opcode, value));
         pc = pc + 1;
     } else if (line[0] === "syscall") {
         let code = processor.getRegister("v0");
@@ -199,7 +217,8 @@ local.exe = (lines, tags, pc, processor) => {
                 pc = pc + 1;
         }
     } else if (line[0] === "jr") {
-        pc = pc + 1;
+        opcode = "01000";
+        pc = opcodeDecoder(opcode, pc);
     } else {
         pc = pc + 1;
     }
