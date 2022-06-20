@@ -192,170 +192,45 @@ const Sidebar = (
                                     style={{ display: d ? `block` : `none` }}
                                 >
                                     {/* Decimal */}
-
                                     <table className="registers-table">
                                         <tr className="tr-table">
                                             <td id="pc-table">PC: {pc}</td>
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <td id="r0">
-                                                R0 [r0]:{" "}
-                                                {registersmap.get("r0")}
-                                            </td>
                                             <td id="s0">
-                                                R16 [s0]:{" "}
+                                                R0 [s0]:{" "}
                                                 {registersmap.get("s0")}
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="at">
-                                                R1 [at]:{" "}
-                                                {registersmap.get("at")}
-                                            </td>
                                             <td id="s1">
-                                                R17 [s1]:{" "}
+                                                R1 [s1]:{" "}
                                                 {registersmap.get("s1")}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td id="v0">
-                                                R2 [v0]:{" "}
-                                                {registersmap.get("v0")}
-                                            </td>
                                             <td id="s2">
-                                                R18 [s2]:{" "}
+                                                R2 [s2]:{" "}
                                                 {registersmap.get("s2")}
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="v1">
-                                                R3 [v1]:{" "}
-                                                {registersmap.get("v1")}
-                                            </td>
                                             <td id="s3">
-                                                R19 [s3]:{" "}
+                                                R3 [s3]:{" "}
                                                 {registersmap.get("s3")}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td id="a0">
-                                                R4 [a0]:{" "}
-                                                {registersmap.get("a0")}
-                                            </td>
                                             <td id="s4">
-                                                R20 [s4]:{" "}
+                                                R4 [s4]:{" "}
                                                 {registersmap.get("s4")}
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="a1">
-                                                R5 [a1]:{" "}
-                                                {registersmap.get("a1")}
-                                            </td>
                                             <td id="s5">
-                                                R21 [s5]:{" "}
+                                                R5 [s5]:{" "}
                                                 {registersmap.get("s5")}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td id="a2">
-                                                R6 [a2]:{" "}
-                                                {registersmap.get("a2")}
-                                            </td>
                                             <td id="s6">
-                                                R22 [s6]:{" "}
+                                                R6 [s6]:{" "}
                                                 {registersmap.get("s6")}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="a3">
-                                                R7 [a3]:{" "}
-                                                {registersmap.get("a3")}
-                                            </td>
-                                            <td id="s7">
-                                                R23 [s7]:{" "}
-                                                {registersmap.get("s7")}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="t0">
-                                                R8 [t0]:{" "}
-                                                {registersmap.get("t0")}
-                                            </td>
-                                            <td id="t8">
-                                                R24 [t8]:{" "}
-                                                {registersmap.get("t8")}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="t1">
-                                                R9 [t1]:{" "}
-                                                {registersmap.get("t1")}
-                                            </td>
-                                            <td id="t9">
-                                                R25 [t9]:{" "}
-                                                {registersmap.get("t9")}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="t2">
-                                                R10 [t2]:{" "}
-                                                {registersmap.get("t2")}
-                                            </td>
-                                            <td id="k0">
-                                                R26 [k0]:{" "}
-                                                {registersmap.get("k0")}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="t3">
-                                                R11 [t3]:{" "}
-                                                {registersmap.get("t3")}
-                                            </td>
-                                            <td id="k1">
-                                                R27 [k1]:{" "}
-                                                {registersmap.get("k1")}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="t4">
-                                                R12 [t4]:{" "}
-                                                {registersmap.get("t4")}
-                                            </td>
-                                            <td id="gp">
-                                                R28 [gp]:{" "}
-                                                {registersmap.get("gp")}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="t5">
-                                                R13 [t5]:{" "}
-                                                {registersmap.get("t5")}
-                                            </td>
-                                            <td id="sp">
-                                                R29 [sp]:{" "}
-                                                {registersmap.get("sp")}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="t6">
-                                                R14 [t6]:{" "}
-                                                {registersmap.get("t6")}
-                                            </td>
-                                            <td id="s8">
-                                                R30 [s8]:{" "}
-                                                {registersmap.get("s8")}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="t7">
-                                                R15 [t7]:{" "}
-                                                {registersmap.get("t7")}
-                                            </td>
-                                            <td id="ra">
-                                                R31 [ra]:{" "}
-                                                {registersmap.get("ra")}
                                             </td>
                                         </tr>
                                     </table>

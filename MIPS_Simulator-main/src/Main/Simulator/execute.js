@@ -183,7 +183,7 @@ execute.exe = (lines, tags, pc, print) => {
     } else if (line[0] === "lui") {
         let src1 = parseInt(line[2]);
         let dest = line[1].replace("$", "");
-        processor.setRegister(dest, src1 * 2 ** 16);
+        processor.setRegister(dest, src1 * 2 ** 10);
         pc = pc + 1;
         valid = true;
     } else if (line[0] === "lw") {

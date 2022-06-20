@@ -23,22 +23,6 @@ class MainPage extends Component {
         pc: 0, //program counter
         memory: processor.memory,
         prevRegisters: new Map([
-            ["r0", 0],
-            ["at", 0],
-            ["v0", 0],
-            ["v1", 0],
-            ["a0", 0],
-            ["a1", 0],
-            ["a2", 0],
-            ["a3", 0],
-            ["t0", 0],
-            ["t1", 0],
-            ["t2", 0],
-            ["t3", 0],
-            ["t4", 0],
-            ["t5", 0],
-            ["t6", 0],
-            ["t7", 0],
             ["s0", 0],
             ["s1", 0],
             ["s2", 0],
@@ -46,15 +30,6 @@ class MainPage extends Component {
             ["s4", 0],
             ["s5", 0],
             ["s6", 0],
-            ["s7", 0],
-            ["t8", 0],
-            ["t9", 0],
-            ["k0", 0],
-            ["k1", 0],
-            ["gp", 0],
-            ["sp", 0],
-            ["s8", 0],
-            ["ra", 0],
         ]), //previous state of registers is maintained to enable highlighting of registers when the corresponding values change
         memlatency: 10, //latency of Man Memory access
         isidealcase: false, //if this is checked, the memory heirarchy is disabled and all memory are operations are assumed to be 1 cycle
