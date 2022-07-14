@@ -232,6 +232,10 @@ const Sidebar = (
                                                 R6 [s6]:{" "}
                                                 {registersmap.get("s6")}
                                             </td>
+                                            <td id="s7">
+                                                R7 [s7]:{" "}
+                                                {registersmap.get("s7")}
+                                            </td>
                                         </tr>
                                     </table>
                                 </li>

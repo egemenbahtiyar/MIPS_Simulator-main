@@ -8,6 +8,7 @@ var processor = {
         ["s4", 0],
         ["s5", 0],
         ["s6", 0],
+        ["s7", 0],
     ]),
     MMLatency: 10,
     isideal: false,
@@ -48,6 +49,7 @@ processor.reset = () => {
         ["s4", 0],
         ["s5", 0],
         ["s6", 0],
+        ["s7", 0],
     ]);
 };
 export default processor;

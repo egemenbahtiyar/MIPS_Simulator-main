@@ -30,6 +30,7 @@ class MainPage extends Component {
             ["s4", 0],
             ["s5", 0],
             ["s6", 0],
+            ["s7", 0],
         ]), //previous state of registers is maintained to enable highlighting of registers when the corresponding values change
         memlatency: 10, //latency of Man Memory access
         isidealcase: false, //if this is checked, the memory heirarchy is disabled and all memory are operations are assumed to be 1 cycle
