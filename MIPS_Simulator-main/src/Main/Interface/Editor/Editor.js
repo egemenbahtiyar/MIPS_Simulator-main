@@ -39,7 +39,6 @@ class Editor extends Component {
                     <AceEditor
                         key={this.props.pc}
                         className={"IDE"}
-                        placeholder="# Type your code here:"
                         fontSize={16}
                         showPrintMargin={false}
                         value={this.props.code}
